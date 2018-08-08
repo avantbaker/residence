@@ -1,4 +1,6 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import App from './src';
+
+console.disableYellowBox = true;
 
 AppRegistry.registerComponent('residence', () => App);
