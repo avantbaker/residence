@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "header": "upcoming events",
+      "events": [
+        {
+          "date": "10/04/2018",
+          "highlight": "+ rsvp",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ut..."
+        },
+        {
+          "date": "11/04/2018",
+          "highlight": "+ rsvp",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ut..."
+        },
+        {
+          "date": "12/04/2018",
+          "highlight": "+ rsvp",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ut..."
+        }
+      ]
+    },
+    {
+      "header": "past event galleries",
+      "events": [
+        {
+          "date": "05/04/2018",
+          "highlight": "+ rsvp",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ut..."
+        }
+      ]
+    }
+  ]
+}
