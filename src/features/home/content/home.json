@@ -1,19 +1,24 @@
 {
   "buttons": [
     {
-      "title": "rsvp"
+      "title": "rsvp",
+      "route": "Rsvp"
     },
     {
-      "title": "events"
+      "title": "events",
+      "route": "Events"
     },
     {
-      "title": "shop"
+      "title": "shop",
+      "route": "Shop"
     },
     {
-      "title": "key holders"
+      "title": "keyholders",
+      "route": "KeyHolder"
     },
     {
-      "title": "sign in"
+      "title": "sign in",
+      "route": "SignIn"
     }
   ]
 }

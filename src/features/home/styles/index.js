@@ -1,5 +1,10 @@
 import { StyleSheet } from 'react-native';
 
+import {
+    heightPercentageToDP as hp,
+    widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
+
 export default StyleSheet.create({
     container: {
         flex: 1,
@@ -7,10 +12,6 @@ export default StyleSheet.create({
         padding: 30,
         justifyContent: 'center',
         alignItems: 'center'
-    },
-    logoWrapper: {
-        marginBottom: 30,
-        bottom: 24
     },
     button: {
         margin: 25,
@@ -38,4 +39,30 @@ export default StyleSheet.create({
         backgroundColor: 'black',
         marginTop: 40
     },
+    buttonContainer: {
+        height: hp('70%'),
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    logoWrapper: {
+        paddingTop: hp('2%'),
+        height: hp('30%'),
+        width: wp('30%'),
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    peachDoor: {
+        position: 'absolute',
+        height: hp('73%'),
+        width: hp('40%'),
+        right: -wp('45%'),
+        bottom: -hp('10%')
+    },
+    pinkDoor: {
+        position: 'absolute',
+        height: hp('65%'),
+        width: hp('30%'),
+        left: -wp('34%'),
+        bottom: -hp('18%')
+    }
 });

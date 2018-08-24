@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 import {
     heightPercentageToDP as hp,
-    widthPercentageToDP as wp
 } from 'react-native-responsive-screen';
 
 export default StyleSheet.create({
@@ -13,25 +12,6 @@ export default StyleSheet.create({
     },
     logoWrapper: {
         marginTop: hp('3%')
-    },
-    contentWrapper: {
-        paddingTop: hp('3%'),
-    },
-    header: {
-        marginBottom: hp('1%'),
-        fontSize: hp('3%'),
-        fontStyle: 'italic'
-    },
-    content: {
-        textAlign: 'justify',
-        width: wp('75%'),
-        borderRightWidth: 3,
-        borderRightColor: 'black',
-    },
-    contentContainer: {
-        width: wp('78%'),
-        borderRightWidth: 3,
-        borderRightColor: '#ededed',
     },
     swipeText: {
         position: 'absolute',

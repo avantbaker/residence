@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { SafeAreaView } from 'react-navigation';
+
 import {
     View,
-    Text,
     Image
 } from 'react-native';
 
-const logoUrl = require('../../../assets/images/logo.png');
-const backgroundUrl = require('../../../assets/images/welcome-girl.jpg');
+import Logo from '@shared/components/Logo';
+import ContentSection from '@shared/components/ContentSection';
+import SwipeIndicator from "@shared/components/SwipeIndicator";
 
-import ContentSection from '../components/ContentSection';
+const backgroundUrl = require('@assets/images/welcome-girl.jpg');
 
-import SharedStyles from '../../../styles';
-import WelcomeStyles from '../styles';
+import WelcomeStyles from '@features/welcome/styles';
+
 import {
     content,
     header
@@ -25,22 +26,13 @@ export default class WelcomeContainer extends Component<Props> {
         return (
             <SafeAreaView style={WelcomeStyles.container}>
                 <View style={WelcomeStyles.logoWrapper}>
-                    <Image
-                        style={SharedStyles.logo}
-                        source={logoUrl}
-                    />
+                    <Logo />
                 </View>
                 <ContentSection
                     header={header}
                     content={content}
                 />
-                <View style={WelcomeStyles.swipeText}>
-                    <Text>Swipe</Text>
-                    <View style={WelcomeStyles.upContainer}>
-                        <Text>Up</Text>
-                        <Text style={WelcomeStyles.caret}>^</Text>
-                    </View>
-                </View>
+                <SwipeIndicator />
                 <Image
                     style={WelcomeStyles.backgroundImage}
                     source={backgroundUrl}

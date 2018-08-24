@@ -4,9 +4,9 @@ import {
     Image
 } from 'react-native';
 
-const logoUrl = require('../../assets/images/logo.png');
+const logoUrl = require('@assets/images/logo.png');
 
-import SharedStyles from '../../styles';
+import SharedStyles from 'src/styles';
 
 const Logo = (props) => {
     return (
