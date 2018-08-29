@@ -10,7 +10,9 @@ import {
 } from 'react-native';
 
 import Logo from '@shared/components/Logo';
-import BackButton from '@shared/components/BackButton'
+import BackButton from '@shared/components/BackButton';
+import Button from '@shared/components/Button';
+
 // Images
 const palm = require('@assets/images/colored-palm.jpg');
 
@@ -21,14 +23,24 @@ import { buttons } from '@features/keyholder/content/index.json';
 import HomeStyles from '@features/home/styles';
 import KeyholderStyles from '@features/keyholder/styles';
 import ShopStyles from '@features/shop/styles';
+import SharedStyles from 'src/styles';
 
 type Props = {};
 
 export default class ShopContainer extends Component<Props> {
+    constructor(props) {
+        super(props);
 
-    renderButtons() {
+        this.state = {
+            exiting: false
+        }
+    }
+    renderButton() {
         return (
-            <TouchableHighlight style={HomeStyles.button}>
+            <TouchableHighlight
+                style={HomeStyles.button}
+                onPress={() => this.props.navigation.navigate('OnlineShop')}
+            >
                 <Text style={HomeStyles.buttonText}>residence-atl.com</Text>
             </TouchableHighlight>
         )
@@ -42,16 +54,32 @@ export default class ShopContainer extends Component<Props> {
                     style={ShopStyles.palm2}
                     transform={[{rotateY: '180deg'}, {rotateZ: '-8deg'}]}
                 />
-                <Image
-                    source={palm}
-                    style={ShopStyles.palm1}
-                />
+                {
+                    !this.state.exiting &&
+                    <Image
+                        source={palm}
+                        style={ShopStyles.palm1}
+                    />
+                }
                 <View style={HomeStyles.logoWrapper}>
-                    <BackButton onPress={this.props.navigation.goBack.bind(this)} />
+                    <BackButton
+                        style={{ alignSelf: 'flex-start'}}
+                        onPress={() => {
+                            this.setState({ exiting: true });
+                            this.props.navigation.goBack();
+                        }}
+                    />
                     <Logo />
                 </View>
                 <View style={KeyholderStyles.buttonContainer}>
-                    { this.renderButtons() }
+                    { this.renderButton() }
+                    <View style={SharedStyles.positionBottom}>
+                        <Button
+                            textStyle={SharedStyles.buttonGreen}
+                            containerStyle={SharedStyles.buttonGreen}
+                            title="Sign In"
+                        />
+                    </View>
                 </View>
             </SafeAreaView>
         );

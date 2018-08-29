@@ -6,8 +6,14 @@ import {
     View,
     Image
 } from 'react-native';
+
+import ProfileScreen from '@features/keyholder/containers';
+
+import BackButton from '@shared/components/BackButton';
 import Button from '@shared/components/Button';
 import Logo from '@shared/components/Logo';
+import FlickableView from '@shared/components/FlickableView';
+
 
 // Images
 const keyUrl = require('@assets/images/golden-key.png');
@@ -24,18 +30,31 @@ type Props = {};
 export default class EntranceContainer extends Component<Props> {
 
     renderButtons() {
-        return buttons.map(({ title }, i) =>
+        return buttons.map(({ title, endpoint }, i) =>
             <Button
-                style={buttons.length - 1 === i && SharedStyles.buttonGreen}
+                textStyle={buttons.length - 1 === i && SharedStyles.buttonGreen}
+                containerStyle={buttons.length - 1 === i && SharedStyles.buttonGreen}
                 title={title}
+                onPress={() => this.props.navigation.navigate(endpoint)}
+                underlayColor="#fec8c1"
             />
         );
     }
 
     render() {
         return (
-            <SafeAreaView style={SharedStyles.container}>
+            <FlickableView
+                overlayComponent={ProfileScreen}
+                visible
+            >
                 <View style={SharedStyles.headerContainer}>
+                    <BackButton
+                        style={{ alignSelf: 'flex-start'}}
+                        onPress={() => {
+                            this.setState({ exiting: true });
+                            this.props.navigation.goBack();
+                        }}
+                    />
                     <Logo />
                 </View>
                 <View style={[SharedStyles.bodyContainer, KeyholderStyles.bodyContainer]}>
@@ -45,7 +64,7 @@ export default class EntranceContainer extends Component<Props> {
                     />
                     <View style={KeyholderStyles.buttonContainer}>{ this.renderButtons() }</View>
                 </View>
-            </SafeAreaView>
+            </FlickableView>
         );
     }
 }

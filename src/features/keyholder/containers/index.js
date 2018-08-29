@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { SafeAreaView } from 'react-navigation';
 import {
     View,
-    Text,
     Image
 } from 'react-native';
 
@@ -10,6 +9,7 @@ const logoUrl = require('@assets/images/logo.png');
 const backgroundUrl = require('@assets/images/afro-chick.jpg');
 
 import ContentSection from '@shared/components/ContentSection';
+import BackButton from '@shared/components/BackButton';
 
 import SharedStyles from 'src/styles';
 import ProfileStyles from '../styles';
@@ -21,6 +21,7 @@ import {
 import {
     header,
 } from '@features/keyholder/content/index.json';
+
 import SwipeIndicator from "@shared/components/SwipeIndicator";
 
 type Props = {};
@@ -40,7 +41,10 @@ export default class WelcomeContainer extends Component<Props> {
                     header={header}
                     content={content}
                 />
-                <SwipeIndicator style={ProfileStyles.swipeText}/>
+                <SwipeIndicator
+                    style={ProfileStyles.swipeText}
+                    onPress={() => this.props.navigation.navigate('Entrance')}
+                />
                 <Image
                     style={ProfileStyles.backgroundImage}
                     source={backgroundUrl}

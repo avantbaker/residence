@@ -30,6 +30,10 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         marginBottom: 8
     },
+    headerWrapper: {
+        marginBottom: hp('4%'),
+        top: -hp('1%')
+    },
     header: {
         fontWeight: 'bold',
         marginBottom: 20,
@@ -70,6 +74,14 @@ export default StyleSheet.create({
         padding: wp('5%'),
         flexDirection: 'column'
     },
+    modal2: {
+        height: hp('55%'),
+        width: wp('85%'),
+        backgroundColor: 'rgba(0,0,0,.8)',
+        borderRadius: 24,
+        padding: wp('5%'),
+        flexDirection: 'column'
+    },
     backgroundPalms: {
         position: 'absolute',
         bottom: 0,
@@ -90,6 +102,21 @@ export default StyleSheet.create({
     hideModalText: {
         color: 'white',
         textAlign: 'center',
+    },
+    modalScrollContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    directionalButtonContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row'
+    },
+    directionalButtons: {
+        fontSize: hp('4%'),
+        margin: hp('2%'),
+        color: 'white',
     },
     modalImageWrapper: {
         height: hp('25%'),
@@ -126,5 +153,16 @@ export default StyleSheet.create({
         flex: 1,
         height: undefined,
         width: undefined
+    },
+    pictureWrapper: {
+        width: wp('44%'),
+        height: hp('15%'),
+        marginBottom: hp('3%')
+    },
+    imageLeft: {
+        paddingRight: wp('2%')
+    },
+    imageRight: {
+        paddingLeft: wp('2%')
     }
 });

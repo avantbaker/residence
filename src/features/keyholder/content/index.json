@@ -2,10 +2,12 @@
   "header": "profile",
   "buttons": [
     {
-      "title": "sign up"
+      "title": "sign up",
+      "endpoint": "SignUp"
     },
     {
-      "title": "sign in"
+      "title": "sign in",
+      "endpoint": "SignIn"
     }
   ],
   "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."

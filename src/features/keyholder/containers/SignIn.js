@@ -9,6 +9,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 
+import BackButton from '@shared/components/BackButton';
 const yellowShirt = require('@assets/images/yellow-shirt.jpg');
 
 import { data } from '@features/events/content/events.json';
@@ -28,6 +29,7 @@ export default class SignInContainer extends Component {
                         source={yellowShirt}
                     />
                 </View>
+                <BackButton onPress={() => this.props.navigation.goBack()}/>
                 <Text style={SharedStyles.header}>welcome back keyholder</Text>
                 <Text style={[SharedStyles.content, RsvpForm.content ]}>
                     { content }

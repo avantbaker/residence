@@ -7,14 +7,14 @@ import {
 
 import SharedStyles from 'src/styles';
 
-const Button = ({ title, style, onPress, endpoint, underlayColor }) => {
+const Button = ({ title, containerStyle, textStyle, onPress, endpoint, underlayColor }) => {
     return (
         <TouchableHighlight
             underlayColor={underlayColor}
-            style={[SharedStyles.button, style]}
+            style={[SharedStyles.button, containerStyle]}
             onPress={() => onPress(endpoint)}
         >
-            <Text style={style ? [SharedStyles.textWhite, SharedStyles.buttonText] :SharedStyles.buttonText}>{title}</Text>
+            <Text style={textStyle ? [SharedStyles.textWhite, SharedStyles.buttonText, textStyle] : SharedStyles.buttonText}>{title}</Text>
         </TouchableHighlight>
     )
 };

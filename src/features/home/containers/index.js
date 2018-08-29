@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 
 // Components
-import { SafeAreaView } from 'react-navigation';
 import {
     View,
     Image,
-    TouchableHighlight
 } from 'react-native';
 
+import {visibleHeight} from '@shared/libs/layout';
+
 // Custom components
-import Icon from 'react-native-vector-icons/FontAwesome';
 import Logo from '@shared/components/Logo';
 import Button from '@shared/components/Button';
 import HomeButton from '@shared/components/HomeButton';
+import FlickableView from "@shared/components/FlickableView";
+import Welcome from '@features/welcome/containers';
 
 // Images
 const peachDoorUrl = require('@assets/images/peach-door.png');
@@ -25,19 +26,22 @@ import { buttons } from '@features/home/content/home.json';
 import HomeStyles from '@features/home/styles';
 import SharedStyles from 'src/styles';
 
+
 type Props = {};
 
 export default class HomeContainer extends Component<Props> {
+
     constructor(props) {
         super(props);
-
         this.navigate = this.props.navigation.navigate.bind(this);
     }
 
     renderButtons() {
         return buttons.map(({ title, route }, i) =>
             <Button
-                style={buttons.length - 1 === i && SharedStyles.buttonGreen}
+                underlayColor="#fec8c1"
+                textStyle={buttons.length - 1 === i && SharedStyles.buttonGreen}
+                containerStyle={buttons.length - 1 === i && SharedStyles.buttonGreen}
                 title={title}
                 onPress={this.navigate}
                 endpoint={route}
@@ -47,7 +51,10 @@ export default class HomeContainer extends Component<Props> {
 
     render() {
         return (
-            <SafeAreaView style={SharedStyles.container}>
+            <FlickableView
+                overlayComponent={Welcome}
+                visible
+            >
                 <View style={SharedStyles.headerContainer}>
                     <HomeButton />
                     <Logo />
@@ -63,7 +70,7 @@ export default class HomeContainer extends Component<Props> {
                 <View style={SharedStyles.bodyContainer}>
                     { this.renderButtons() }
                 </View>
-            </SafeAreaView>
+            </FlickableView>
         );
     }
 }

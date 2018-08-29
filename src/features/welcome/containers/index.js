@@ -3,16 +3,19 @@ import { SafeAreaView } from 'react-navigation';
 
 import {
     View,
-    Image
+    Image,
+    TouchableOpacity
 } from 'react-native';
 
 import Logo from '@shared/components/Logo';
+import BackButton from '@shared/components/BackButton';
 import ContentSection from '@shared/components/ContentSection';
 import SwipeIndicator from "@shared/components/SwipeIndicator";
 
 const backgroundUrl = require('@assets/images/welcome-girl.jpg');
 
 import WelcomeStyles from '@features/welcome/styles';
+import SharedStyles from 'src/styles';
 
 import {
     content,

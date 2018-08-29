@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 import { createStackNavigator } from 'react-navigation';
 
-import Welcome from '@features/welcome/containers';
+import WelcomeScreen from '@features/welcome/containers';
 import HomeScreen from '@features/home/containers';
 import EventsScreen from '@features/events/containers';
+import EventGalleryScreen from '@features/events/containers/EventGallery';
 import RsvpFormScreen from '@features/rsvp/containers/RsvpForm';
 import ThankYouScreen from '@features/rsvp/containers/ThankYou';
-import ProfileScreen from '@features/keyholder/containers';
+import OnlineShopScreen from '@features/shop/containers/OnlineShop';
 import EntranceScreen from '@features/keyholder/containers/Entrance';
 import SignInScreen from '@features/keyholder/containers/SignIn';
 import SignUpScreen from '@features/keyholder/containers/SignUp';
@@ -19,10 +20,11 @@ const RootStack = createStackNavigator(
         Events: EventsScreen,
         Rsvp: RsvpFormScreen,
         Thanks: ThankYouScreen,
-        KeyHolder: ProfileScreen,
         Entrance: EntranceScreen,
         SignIn: SignInScreen,
         SignUp: SignUpScreen,
+        EventGallery: EventGalleryScreen,
+        OnlineShop: OnlineShopScreen,
         Shop: ShopScreen
     },
     {

@@ -122,5 +122,9 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         fontStyle: 'italic',
         fontSize: wp('4%')
+    },
+    positionBottom: {
+        position: 'absolute',
+        bottom: 0
     }
 });

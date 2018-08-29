@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
     View,
-    TouchableHighlight,
+    TouchableOpacity,
     Text
 } from 'react-native';
 
@@ -11,7 +11,7 @@ import SharedStyles from 'src/styles';
 
 const BackButton = ({ onPress }) => {
     return (
-        <TouchableHighlight
+        <TouchableOpacity
             style={SharedStyles.leftHeaderButton}
             onPress={() => onPress()}
         >
@@ -23,7 +23,7 @@ const BackButton = ({ onPress }) => {
                 />
                 <Text style={SharedStyles.backButtonText}>back</Text>
             </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
     )
 };
 

@@ -9,15 +9,15 @@ import EventButton from './EventButton';
 
 import EventStyles from '../styles';
 
-const EventSection = ({ events, header, onItemPress }) => {
+const EventSection = ({ events, header, onItemPress, onItemPress2 }) => {
 
     const renderEvents = () => {
-        return events.map(({ date, highlight, content }) =>
+        return events.map(({ date, highlight, content, isPast }) =>
             <EventButton
                 date={date}
                 highlight={highlight}
                 content={content}
-                onPress={() => onItemPress({ date, highlight, content }) }
+                onPress={() => isPast ? onItemPress2() : onItemPress({ date, highlight, content })}
             />
         );
     };

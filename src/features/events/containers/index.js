@@ -14,6 +14,7 @@ import {
 
 import EventSection from "../components/EventSection";
 import EventModal from "src/features/events/containers/EventModal";
+import EventGallery from "@features/events/containers/EventGalleryModal";
 import Logo from '@shared/components/Logo';
 
 import EventStyles from '../styles';
@@ -31,17 +32,24 @@ export default class EventContainer extends Component<Props> {
 
         this.state = {
             modalVisible: false,
-            event: null
+            event: null,
+            exiting: false
         };
 
         this.renderEvents = this.renderEvents.bind(this);
         this.setModalVisible = this.setModalVisible.bind(this);
-
+        this.setModal2Visible = this.setModal2Visible.bind(this);
     }
 
     setModalVisible(visible) {
         this.setState({
             modalVisible: visible
+        });
+    }
+
+    setModal2Visible(visible) {
+        this.setState({
+            modal2Visible: visible
         });
     }
 
@@ -56,6 +64,9 @@ export default class EventContainer extends Component<Props> {
                         content: event
                     });
                 }}
+                onItemPress2={(event) => {
+                    this.props.navigation.navigate('EventGallery')
+                }}
             />
         );
     }
@@ -64,13 +75,19 @@ export default class EventContainer extends Component<Props> {
         return (
             <SafeAreaView style={SharedStyles.container}>
                 <View style={SharedStyles.headerContainer}>
-                    <BackButton onPress={this.props.navigation.goBack.bind(this)} />
+                    <BackButton onPress={() => {
+                        this.setState({ exiting: true });
+                        this.props.navigation.goBack()
+                    }} />
                     <Logo />
                 </View>
-                <Image
-                    style={EventStyles.backgroundPalms}
-                    source={backgroundUrl}
-                />
+                {
+                    !this.state.exiting &&
+                    <Image
+                        style={EventStyles.backgroundPalms}
+                        source={backgroundUrl}
+                    />
+                }
                 <View style={SharedStyles.bodyContainer}>
                     <FlatList
                         showsVerticalScrollIndicator={false}

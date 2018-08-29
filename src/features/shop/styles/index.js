@@ -20,4 +20,7 @@ export default StyleSheet.create({
         height: hp('95%'),
         width: hp('50%')
     },
+    backButtonContainer: {
+
+    }
 });

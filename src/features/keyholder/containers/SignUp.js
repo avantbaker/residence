@@ -9,6 +9,8 @@ import {
     TouchableOpacity
 } from 'react-native';
 
+import BackButton from '@shared/components/BackButton';
+
 const shadeGirl = require('@assets/images/girl-with-shades.jpg');
 
 import { data } from '@features/events/content/events.json';
@@ -28,6 +30,7 @@ export default class SignUpContainer extends Component {
                         source={shadeGirl}
                     />
                 </View>
+                <BackButton onPress={() => this.props.navigation.goBack()} />
                 <Text style={SharedStyles.header}>becoming a keyholder</Text>
                 <Text style={[SharedStyles.content, RsvpStyles.content]}>
                     { content }

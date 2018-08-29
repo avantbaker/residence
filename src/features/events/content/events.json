@@ -26,9 +26,32 @@
         {
           "date": "05/04/2018",
           "highlight": "+ rsvp",
-          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ut..."
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ut...",
+          "isPast": true
         }
       ]
+    }
+  ],
+  "gallery": [
+    {
+      "title": "some title",
+      "source": "@assets/images/popup_image.jpg"
+    },
+    {
+      "title": "some title",
+      "source": "@assets/images/popup_image.jpg"
+    },
+    {
+      "title": "some title",
+      "source": "@assets/images/popup_image.jpg"
+    },
+    {
+      "title": "some title",
+      "source": "@assets/images/popup_image.jpg"
+    },
+    {
+      "title": "some title",
+      "source": "@assets/images/popup_image.jpg"
     }
   ]
 }

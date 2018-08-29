@@ -47,7 +47,7 @@ export default StyleSheet.create({
     logoWrapper: {
         paddingTop: hp('2%'),
         height: hp('30%'),
-        width: wp('30%'),
+        width: wp('100%'),
         justifyContent: 'center',
         alignItems: 'center',
     },
