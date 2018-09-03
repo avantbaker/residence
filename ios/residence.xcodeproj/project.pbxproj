@@ -43,6 +43,7 @@
 		3DC3F9226CB04597AB3CA0B2 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81EDB557EC514B118522E9FF /* FontAwesome5_Brands.ttf */; };
 		4E6CEAB1E50B41EFA5720087 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5FA5D64AA5436BA2DC42DA /* libSplashScreen.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		61B01F7B21378481003E045E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61B01F412136F2F4003E045E /* Images.xcassets */; };
 		657DF6F04E954476BF397948 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E348C23C7B9D4FC9AE4AD8A1 /* EvilIcons.ttf */; };
 		6AC6D23E5FB449EB80303B36 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A678AF29930498F87F8FF6A /* FontAwesome.ttf */; };
 		73DACE558E6645F690171EB0 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3733104697F45578568015F /* Ionicons.ttf */; };
@@ -823,6 +824,9 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 27RTEL552C;
+					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -1219,6 +1223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61B01F7B21378481003E045E /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				31E8C98183A24A8D87AC25AA /* Entypo.ttf in Resources */,
 				657DF6F04E954476BF397948 /* EvilIcons.ttf in Resources */,
@@ -1417,6 +1422,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 27RTEL552C;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
@@ -1424,12 +1430,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 				);
 				INFOPLIST_FILE = residence/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.residence.mobile.app;
 				PRODUCT_NAME = residence;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1441,6 +1449,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 27RTEL552C;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
@@ -1448,12 +1457,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 				);
 				INFOPLIST_FILE = residence/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.residence.mobile.app;
 				PRODUCT_NAME = residence;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

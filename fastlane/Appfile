@@ -1,0 +1,4 @@
+app_identifier "com.residence.mobile.app" # The bundle identifier of your app
+apple_id "b.avant89@gmail.com" # Your Apple email address
+team_id "27RTEL552C"  # Developer Portal Team ID
+# org.reactjs.native.example.residence

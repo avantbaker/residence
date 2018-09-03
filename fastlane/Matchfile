@@ -1,0 +1,4 @@
+git_url "https://github.com/avantbaker/residence-fastlane-certs.git"
+type "development"
+app_identifier ["com.residence.mobile.app"]
+username "b.avant89@gmail.com"
