@@ -1,44 +1,60 @@
-machine:
-  xcode:
-    version: '8.0'
-  environment:
-    YARN_VERSION: 0.18.1
-    # Needed for Android SDK installation bash script (see below)
-    # ANDROID_HOME: "/usr/local/Cellar/android-sdk"
-    PATH: "${PATH}:${HOME}/.yarn/bin:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
-dependencies:
-  pre:
-    # Install YARN
-    - |
-      if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
-        curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
-      fi
-  override:
-    # The Android Gradle build will need the Android signing keystore keys setup
-#    - mkdir -p ~/.gradle
-#    - echo -e "SOFARSOUNDS_RELEASE_STORE_PASSWORD=$ANDROID_KEYSTORE_PASSWORD\nSOFARSOUNDS_RELEASE_KEY_PASSWORD=$ANDROID_KEYSTORE_PASSWORD" >> ~/.gradle/gradle.properties
-    # Install Gems (fastlane, etc)
-    - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 --without development
-    # Install node modules
-    - yarn install
-  cache_directories:
-    # Let's speed up the next build by cacheing installed dependencies
-    - ~/.yarn
-    - ~/.cache/yarn
-    - vendor/bundle
-    - node_modules
-    - ~/Library/Caches/CocoaPods
-deployment:
-  beta:
-    branch: master
-    commands:
-      # Run our pre-build setup
-      - npm run setup
-      # Install Android SDK
-#      - ./ci-install-android-sdk.sh
-      # Build and deploy Android app
-#      - bundle exec fastlane android beta
-      # Build and deploy iOS app
-      - bundle exec fastlane ios beta
+version: 2
+jobs:
+  build:
+    macos:
+      # specify the version you desire here
+      xcode: "9.0"
+#    working_directory: ~/residence
+    steps:
+      - checkout
 
+      - run:
+        name: Install Gems
+        command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 --without development
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
 
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+  deploy:
+      macos:
+        xcode: "9.0"
+
+      steps:
+        - checkout
+
+        # Set up code signing via Fastlane Match.
+        - run:
+            name: Set up code signing
+            command: fastlane match development --readonly
+
+        # Build the release version of the app.
+        - run:
+            name: Build IPA
+            command: fastlane gym
+
+        # Deploy!
+        - run:
+            name: Deploy to App Store
+            command: fastlane ios beta
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
