@@ -56,7 +56,6 @@ export default class HomeContainer extends Component<Props> {
                 visible
             >
                 <View style={SharedStyles.headerContainer}>
-                    <HomeButton />
                     <Logo />
                 </View>
                 <Image
